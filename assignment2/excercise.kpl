@@ -1,0 +1,75 @@
+PROGRAM EXERCISE;
+
+VAR Arr : ARRAY(.10.) OF INTEGER;
+    I: INTEGER;
+    J: INTEGER;
+    CHECK : INTEGER;
+    MIN: INTEGER;
+    MAX: INTEGER;
+BEGIN
+
+    FOR I := 0 TO 9 DO
+        Arr(.I.) := READI;
+
+    MIN := Arr(.0.);
+    MIN := Arr(.0.);
+    FOR I := 1 TO 9 DO
+    BEGIN
+        IF Arr(.I.) < MIN THEN MIN := Arr(.I.);
+	IF Arr(.I.) > MAX THEN MAX := Arr(.I.);
+    END;
+    CALL WRITEC('M');
+    CALL WRITEC('A');
+    CALL WRITEC('X');
+    CALL WRITEC(' ');
+    CALL WRITEI(MAX);
+    CALL WRITELN;  
+    CALL WRITEC('M');
+    CALL WRITEC('I');
+    CALL WRITEC('N');
+    CALL WRITEC(' '); 
+    CALL WRITEI(MIN);
+    CALL WRITELN;
+    CHECK := 0;
+    FOR I := 0 TO 8 DO
+        BEGIN
+        FOR J := I+1 TO 9 DO
+            BEGIN
+            IF Arr(.I.) = Arr(.J.) THEN
+		BEGIN
+			CALL WRITEC('G');
+			CALL WRITEC('i');
+			CALL WRITEC('o');
+			CALL WRITEC('n');
+			CALL WRITEC('g');
+			CALL WRITEC(' ');
+			CALL WRITEC('N');
+			CALL WRITEC('h');
+			CALL WRITEC('a');
+			CALL WRITEC('u');
+			CALL WRITEC(' ');
+			CALL WRITEC('T');
+			CALL WRITEC('a');
+			CALL WRITEC('i');
+			CALL WRITEC(' ');
+			CALL WRITEC('V');
+			CALL WRITEC('i');
+			CALL WRITEC(' ');
+			CALL WRITEC('T');
+			CALL WRITEC('r');
+			CALL WRITEC('i');
+			CALL WRITEC(' ');
+			CALL WRITEI(I+1);
+			CALL WRITEC(' ');
+			CALL WRITEC('V');
+			CALL WRITEC('a');
+			CALL WRITEC(' ');
+			CALL WRITEI(J+1);
+			CALL WRITELN;
+			END;
+                 END;
+        END;    
+END.
+
+
+    
