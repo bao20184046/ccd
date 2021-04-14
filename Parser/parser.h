@@ -1,8 +1,4 @@
-/* 
- * @copyright (c) 2008, Hedspi, Hanoi University of Technology
- * @author Huu-Duc Nguyen
- * @version 1.0
- */
+
 #ifndef __PARSER_H__
 #define __PARSER_H__
 #include "token.h"
