@@ -1,3 +1,8 @@
+/* 
+ * @copyright (c) 2008, Hedspi, Hanoi University of Technology
+ * @author Huu-Duc Nguyen
+ * @version 1.0
+ */
 
 #include <stdio.h>
 #include "reader.h"
@@ -12,9 +17,6 @@ int readChar(void) {
   if (currentChar == '\n') {
     lineNo ++;
     colNo = 0;
-  }
-  if(currentChar != EOF) {
-    printf("%c", currentChar);
   }
   return currentChar;
 }

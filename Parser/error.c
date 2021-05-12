@@ -1,3 +1,8 @@
+/* 
+ * @copyright (c) 2008, Hedspi, Hanoi University of Technology
+ * @author Huu-Duc Nguyen
+ * @version 1.0
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -47,17 +52,17 @@ void error(ErrorCode err, int lineNo, int colNo) {
   case ERR_INVALIDFACTOR:
     printf("%d-%d:%s\n", lineNo, colNo, ERM_INVALIDFACTOR);
     break;
-  case ERR_INVALIDCONSTDECL:
-    printf("%d-%d:%s\n", lineNo, colNo, ERM_INVALIDCONSTDECL);
-    break;
   case ERR_INVALIDTYPEDECL:
     printf("%d-%d:%s\n", lineNo, colNo, ERM_INVALIDTYPEDECL);
     break;
-  case ERR_INVALIDVARDECL:
-    printf("%d-%d:%s\n", lineNo, colNo, ERM_INVALIDVARDECL);
+  case ERR_INVALIDCONSTDECL:
+    printf("%d-%d:%s\n", lineNo, colNo, ERM_INVALIDCONSTDECL);
     break;
-  case ERR_INVALIDSUBDECL:
+    case ERR_INVALIDSUBDECL:
     printf("%d-%d:%s\n", lineNo, colNo, ERM_INVALIDSUBDECL);
+    break;
+    case ERR_INVALIDVARDECL:
+    printf("%d-%d:%s\n", lineNo, colNo, ERM_INVALIDVARDECL);
     break;
   }
   exit(0);

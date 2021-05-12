@@ -1,0 +1,13 @@
+PROGRAM EXCERCISE;
+
+VAR	MIN : INTEGER;
+    I : INTEGER;
+    J : INTEGER;
+    K : STRING;     
+BEGIN
+    K:= "chuong trinh dich";
+    I:= J % 3;
+    DO
+        MIN:= 3 + 4 * 5 % 2 
+    WHILE MIN < 0;
+END.
