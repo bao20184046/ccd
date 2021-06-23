@@ -1,0 +1,17 @@
+Program Example2; (* Factorial *)
+ 
+Var n : Integer;
+	m: Double;
+	X: String;
+	e: Integer;
+	k: Integer;
+
+Begin
+    X:="Chuong trinh dich";
+    m:= 1;
+    m:= 2.5 + 1;
+    n,e,k,m:=1,2,3,1.5;
+    n := 1,2;
+    n,e :=1;
+  
+End. (* Factorial *)
