@@ -15,7 +15,7 @@ struct ErrorMessage {
   char *message;
 };
 
-struct ErrorMessage errors[32] = {
+struct ErrorMessage errors[33] = {
   {ERR_END_OF_COMMENT, "End of comment expected."},
   {ERR_IDENT_TOO_LONG, "Identifier too long."},
   {ERR_INVALID_CONSTANT_CHAR, "Invalid char constant."},
@@ -47,6 +47,7 @@ struct ErrorMessage errors[32] = {
   {ERR_PARAMETERS_ARGUMENTS_INCONSISTENCY, "The number of arguments and the number of parameters are inconsistent."},
   {ERR_ASSIGN_NUMBER, "The number of elements on either side is different"},
   {ERR_CONSTANT_ASSIGN, "The left side contains the constant"},
+  {ERR_ARRAY_ASSIGN, "The left side contains the array"},
   {ERR_ARRAY_ELEMENT_NUMBER, "Number of elements in two arrays is different"}
 };
 

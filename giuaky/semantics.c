@@ -97,6 +97,11 @@ Object* checkDeclaredLValueIdent(char* name) {
 
   switch (obj->kind) {
   case OBJ_VARIABLE:
+  // {
+  //   if(obj->varAttrs->type->typeClass == TP_ARRAY)
+  //     error(ERR_ARRAY_ASSIGN, currentToken->lineNo, currentToken->colNo);
+  //   break;
+  // }
   case OBJ_PARAMETER:
     break;
   case OBJ_FUNCTION:
@@ -151,7 +156,11 @@ void checkTypeEquality(Type* vartype, Type* valuetype)
   } else if(vartype->typeClass == TP_ARRAY)
   {
     checkTypeEquality(vartype->elementType, valuetype->elementType);
-    if (vartype->arraySize != valuetype->arraySize)
-      error(ERR_ARRAY_ELEMENT_NUMBER, currentToken->lineNo, currentToken->colNo);
   }
+}
+
+void checkArrayNumber(Type* type1, Type* type2)
+{
+  if (type1->arraySize != type2->arraySize)
+      error(ERR_ARRAY_ELEMENT_NUMBER, currentToken->lineNo, currentToken->colNo);
 }

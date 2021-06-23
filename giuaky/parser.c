@@ -474,6 +474,8 @@ void compileAssignSt(void) {
 
   for (int i = 0; i < qtyvar; ++i)
   {
+    if(vartype[i]->typeClass == TP_ARRAY)
+      checkArrayNumber(vartype[i], valuetype[i]);
     checkTypeEquality(vartype[i], valuetype[i]);
   }
 }

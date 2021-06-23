@@ -26,5 +26,6 @@ void checkDoubleType(Type* type);
 void checkStringType(Type* type);
 void checkTypeEquality(Type* type1, Type* type2);
 void checkValuesQuantity(int valuevar, int valueqty);
+void checkArrayNumber(Type* type1, Type* type2);
 
 #endif
