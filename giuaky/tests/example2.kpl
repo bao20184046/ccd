@@ -1,17 +1,16 @@
 Program Example2; (* Factorial *)
- 
+CONST I = 3.14; 
 Var n : Integer;
-	m: Double;
-	X: String;
-	e: Integer;
-	k: Integer;
-
+    m: Double;
+    X: String;
+    e: Integer;
+    k: Integer;
+    A: ARRAY (. 2 .) OF INTEGER;
+    B: ARRAY (. 2 .) OF DOUBLE; 
 Begin
-    X:="Chuong trinh dich";
+    B:= A;
     m:= 1;
     m:= 2.5 + 1;
     n,e,k,m:=1,2,3,1.5;
     n := 1,2;
-    n,e :=1;
-  
 End. (* Factorial *)

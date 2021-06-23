@@ -45,9 +45,9 @@ struct ErrorMessage errors[32] = {
   {ERR_DUPLICATE_IDENT, "Duplicate identifier."},
   {ERR_TYPE_INCONSISTENCY, "Type inconsistency"},
   {ERR_PARAMETERS_ARGUMENTS_INCONSISTENCY, "The number of arguments and the number of parameters are inconsistent."},
-  {ERR_LEFT_VALUES_EXCEED, "Left values is more than right values"},
-  {ERR_RIGHT_VALUES_EXCEED, "Right values is more than left values"},
-  {ERR_CONSTANT_DECLARED, "Left operand containts constant"}
+  {ERR_ASSIGN_NUMBER, "The number of elements on either side is different"},
+  {ERR_CONSTANT_ASSIGN, "The left side contains the constant"},
+  {ERR_ARRAY_ELEMENT_NUMBER, "Number of elements in two arrays is different"}
 };
 
 void error(ErrorCode err, int lineNo, int colNo) {

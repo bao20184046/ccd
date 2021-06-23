@@ -294,21 +294,21 @@ Type* compileType(void) {
     eat(KW_CHAR); 
     type = makeCharType();
     break;
+  case KW_DOUBLE:
+    eat(KW_DOUBLE);
+    type = makeDoubleType();
+    break;
   case KW_ARRAY:
     eat(KW_ARRAY);
     eat(SB_LSEL);
+    // eat(SB_PERIOD);
     eat(TK_NUMBER);
-
-    arraySize = currentToken->intValue;
-
+    arraySize = currentToken->intValue;     
+    // eat(SB_PERIOD);
     eat(SB_RSEL);
     eat(KW_OF);
     elementType = compileType();
     type = makeArrayType(arraySize, elementType);
-    break;
-  case KW_DOUBLE:
-    eat(KW_DOUBLE);
-    type = makeDoubleType();
     break;
   case KW_STRING:
     eat(KW_STRING);
@@ -447,14 +447,14 @@ Type* compileLValue(void) {
 }
 
 void compileAssignSt(void) {
-  Type **vartype = (Type**) calloc(10, sizeof(Type*));
-  Type **valuetype = (Type**) calloc(10, sizeof(Type*));
-
   int qtyvar = 0;
   int qtyvalue = 0;
 
+  Type **vartype = (Type**) calloc(10, sizeof(Type*));
+  Type **valuetype = (Type**) calloc(10, sizeof(Type*));
+  
   vartype[qtyvar++] = compileLValue();
-  while(lookAhead->tokenType == SB_COMMA)
+  while(lookAhead->tokenType != SB_ASSIGN)
   {
     eat(SB_COMMA);
     vartype[qtyvar++] = compileLValue();
@@ -469,11 +469,8 @@ void compileAssignSt(void) {
     valuetype[qtyvalue++] = compileExpression();
   }
 
-  if(qtyvar < qtyvalue)
-    error(ERR_RIGHT_VALUES_EXCEED, currentToken->lineNo, currentToken->colNo);
-  else
-    if(qtyvar > qtyvalue)
-      error(ERR_LEFT_VALUES_EXCEED, currentToken->lineNo, currentToken->colNo);
+  if(qtyvar != qtyvalue)
+      error(ERR_ASSIGN_NUMBER, currentToken->lineNo, currentToken->colNo);
 
   for (int i = 0; i < qtyvar; ++i)
   {

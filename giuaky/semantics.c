@@ -104,7 +104,7 @@ Object* checkDeclaredLValueIdent(char* name) {
       error(ERR_INVALID_IDENT,currentToken->lineNo, currentToken->colNo);
     break;
   case OBJ_CONSTANT:
-    error(ERR_CONSTANT_DECLARED, currentToken->lineNo, currentToken->colNo);
+    error(ERR_CONSTANT_ASSIGN, currentToken->lineNo, currentToken->colNo);
   default:
     error(ERR_INVALID_IDENT,currentToken->lineNo, currentToken->colNo);
   }
@@ -142,17 +142,16 @@ void checkArrayType(Type* type) {
     error(ERR_TYPE_INCONSISTENCY, currentToken->lineNo, currentToken->colNo);
 }
 
-void checkTypeEquality(Type* type1, Type* type2) {
-  // TODO
-  if (type1->typeClass != type2->typeClass) {
-    if(type1->typeClass == TP_DOUBLE && type2->typeClass == TP_INT)
-    {
-      return;
-    }
-    error(ERR_TYPE_INCONSISTENCY, currentToken->lineNo, currentToken->colNo);
-  } else if (type1->typeClass == TP_ARRAY) {
-    checkTypeEquality(type1->elementType, type2->elementType);
-    if (type1->arraySize != type2->arraySize)
+void checkTypeEquality(Type* vartype, Type* valuetype) 
+{
+  if (vartype->typeClass != valuetype->typeClass)
+  {
+    if(vartype->typeClass == TP_DOUBLE && valuetype->typeClass != TP_INT)
       error(ERR_TYPE_INCONSISTENCY, currentToken->lineNo, currentToken->colNo);
+  } else if(vartype->typeClass == TP_ARRAY)
+  {
+    checkTypeEquality(vartype->elementType, valuetype->elementType);
+    if (vartype->arraySize != valuetype->arraySize)
+      error(ERR_ARRAY_ELEMENT_NUMBER, currentToken->lineNo, currentToken->colNo);
   }
 }
